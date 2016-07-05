@@ -13,10 +13,11 @@ var face = [];
 
 data.forEach(() => {
   face[h]=[];
-  face[h][0]=['x','y','z','vx','vy'];
+  //face[h][0]=['x','y','z','vx','vy'];
+  face[h][0]=['x','y','z'];
   for(i=0;i<M;i++){
     face[h][i+1]=[];
-    for(j=0;j<5;j++){
+    for(j=0;j<3;j++){
       if(j==2){
         face[h][i+1][j]=data[h][i*5+j+1]-data[h][NoseTip*5+2+1];
       }else{
@@ -33,7 +34,7 @@ face.forEach(()=>{
   //Array2CSVここから
 
   //var file_name = 'face.csv.'+number;
-  var file_name = 'faceShiftjisCommaBOMnashiRNnohazu10kizami'+number+'.csv';
+  var file_name = 'faceShiftjisCommaBOMnashiRNnohazu336'+number+'.csv';
   var csv_array = face[number];
 
   //配列をTAB区切り文字列に変換
