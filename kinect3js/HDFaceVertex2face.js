@@ -1,14 +1,14 @@
 
 
 
-var data = csv2Array('HDFaceVertex.csv');
+var data = csv2Array('HDFaceData.csv');
 //var data2 = csv2Array('Test2.csv');
 
 var h,i,j;
 h=0;
 
 var NoseTip=17;//5はあごっぽい？？ 21が正解っぽい?478
-var M=1347;
+var M=36;
 var face = [];
 
 data.forEach(() => {
@@ -19,9 +19,9 @@ data.forEach(() => {
     face[h][i+1]=[];
     for(j=0;j<3;j++){
       if(j==2){
-        face[h][i+1][j]=data[h][i*5+j+1]-data[h][NoseTip*5+2+1];
+        face[h][i+1][j]=data[h][i*5+j+10]-data[h][NoseTip*5+2+10];
       }else{
-        face[h][i+1][j]=data[h][i*5+j+1];
+        face[h][i+1][j]=data[h][i*5+j+10];
       }
     }
   }
