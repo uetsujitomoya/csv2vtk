@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>D3.jsの練習</title>
+</head>
+<body>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script>
+        var data = csv2Array('HDFaceData.csv');
+        
+        
+        var g,h,i,j;
+        h=0;
+        g=0;
+        
+        var N=2;
+        var face = [];
+        
+        
+        data.forEach((item) => {
+        	//console.log(item);
+        	face[h]=[];
+        	for(i=0;i<36;i++){
+        		face[h][i]=[];
+        		for(j=0;j<5;j++){
+        			face[h][i][j]=data[h][i*5+j+13];
+        		}
+        	}
+        	h++;
+        });
+        h=0;
+        
+        var hue = d3.scale.linear()
+          .domain(d3.extent(face[h], (item) => +item[2]))
+          .range([2 / 3, 0]);
+
+        //var dataset = [11, 25, 45, 30, 33];
+
+        var width = 1280;
+        var height = 720;
+
+        var svg = d3.select("body").append("svg").attr({width:width, height:height});
+
+        d3.select('svg')
+          .selectAll('circle')
+          .data(face[h])
+          .enter()
+          .append('circle')
+          .attr({
+            cx: function(d) {
+            return d[0];
+            },
+            cy: function(d) {
+            return d[1];
+            },
+            r: 10
+          })
+          .style('fill', function(d) {
+            return Cesium.Color.fromHsl(hue(d[2]), 1, 0.5);
+          });
+            
+        function csv2Array(filePath) { //csvﾌｧｲﾙﾉ相対ﾊﾟｽor絶対ﾊﾟｽ
+        	var csvData = [];
+        	var data = new XMLHttpRequest();
+        	data.open("GET", filePath, false); //true:非同期,false:同期
+        	data.send(null);
+        
+        	var LF = String.fromCharCode(10); //改行ｺｰﾄﾞ
+        	var lines = data.responseText.split(LF);
+        	for (var i = 0; i < lines.length;++i) {
+        		var cells = lines[i].split(",");
+        		if( cells.length != 1 ) {
+        			csvData.push(cells);
+        		}
+        	}
+        	return csvData;
+        }            
+        
+
+
+    </script>
+</body>
+</html>
