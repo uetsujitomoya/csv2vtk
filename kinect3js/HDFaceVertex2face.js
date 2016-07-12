@@ -19,9 +19,9 @@ data.forEach(() => {
     face[h][i+1]=[];
     for(j=0;j<3;j++){
       if(j==2){
-        face[h][i+1][j]=data[h][i*5+j+13]-data[h][NoseTip*5+2+13];
+        face[h][i+1][j]=Math.ceil(100*data[h][i*5+j+13]-100*data[h][NoseTip*5+2+13]);
       }else{
-        face[h][i+1][j]=data[h][i*5+j+13];
+        face[h][i+1][j]=Math.ceil(100*data[h][i*5+j+13]);
       }
     }
   }
@@ -34,15 +34,14 @@ face.forEach(()=>{
   //Array2CSVここから
 
   //var file_name = 'face.csv.'+number;
-  var file_name = 'faceShiftjisCommaBOMnashiRNnohazuJusan'+number+'.csv';
+  var file_name = 'faceShiftjis36noSpaceMath100ceil'+number+'.csv';
   var csv_array = face[number];
 
   //配列をTAB区切り文字列に変換
   var csv_string = "";
-  let XMAX=36;
-  //XMAX=csv_array.length
-  for (let x=0; x<XMAX; x++) {
-      csv_string += csv_array[x].join(",");
+
+  for (let x=0; x<csv_array.length; x++) {
+      csv_string += csv_array[x].join(" ");
       csv_string += "\n";
   }
 
