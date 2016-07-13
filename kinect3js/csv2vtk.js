@@ -9,19 +9,20 @@ h=0;
 
 var NoseTip=17;//5はあごっぽい？？ 21が正解っぽい?478
 var M=36;
+let N=52;
 var face = [];
 
 data.forEach(() => {
   face[h]=[];
   //face[h][0]=['x','y','z','vx','vy'];
-  face[h][0]=['x','y','z'];
+  //face[h][0]=['x','y','z'];
   for(i=0;i<M;i++){
-    face[h][i+1]=[];
+    face[h][i]=[];
     for(j=0;j<3;j++){
       if(j==2){
-        face[h][i+1][j]=Math.ceil(100*data[h][i*5+j+13]-100*data[h][NoseTip*5+2+13]);
+        face[h][i][j]=Math.ceil(1000*data[h][i*5+j+13]-1000*data[h][NoseTip*5+2+13]);
       }else{
-        face[h][i+1][j]=Math.ceil(100*data[h][i*5+j+13]);
+        face[h][i][j]=Math.ceil(1000*data[h][i*5+j+13]);
       }
     }
   }
@@ -33,24 +34,31 @@ let number=0;
 face.forEach(()=>{
 
   var content="# vtk DataFile Version 2.0\n";
-  content +="# faceShiftjisCommaBOMnashiRNnohazuJusan50\n";
+  content +="# fb\n";
   content +="ASCII\n";
   content +="DATASET POLYDATA\n";
   content +="POINTS 36 double\n";
 
   for(i=0;i<M;i++){
-    content +=Math.round("3 "+100*face[number][i][0])+" "+Math.round(100*face[number][i][1])+" "+Math.round(100*face[number][i][2])+"\n";
+    content +=face[number][i][0]+" "+face[number][i][1]+" "+face[number][i][2]+"\n";
   }
 
-  content +="POLYGONS 52 208\n";
+  content +="POLYGONS "+N+" "+N*4+"\n";
   content +="3 0 1 34\n";
 
   content +="3 1 2 34\n3 2 3 9\n3 2 3 21\n3 2 9 24\n3 4 6 9\n3 4 6 21\n3 4 9 12\n3 4 12 25\n3 4 21 25\n3 5 7 12\n3 5 7 25\n3 5 12 25\n3 6 9 30\n3 6 21 30\n3 7 11 12\n3 7 11 13\n3 7 13 16\n3 7 16 26\n3 7 24 25\n3 7 24 27\n3 7 26 27\n3 8 14 16\n3 8 16 26\n3 8 26 28\n3 9 12 18\n3 9 17 18\n3 9 17 34\n3 10 14 16\n3 10 15 16\n3 10 15 19\n3 10 18 19\n3 11 12 13\n3 12 13 18\n3 13 15 16\n3 13 18 32\n3 18 19 32\n3 20 21 25\n3 20 21 29\n3 20 23 33\n3 20 25 31\n3 20 31 33\n3 22 23 26\n3 22 23 33\n3 22 26 27\n3 23 26 28\n3 24 25 27\n3 25 27 31";
   //とWriteメソッドを呼び出します。非常に簡単です。開いたファイルは必ず閉じます：
+  content+="CELL_DATA "+N+"\nSCALARS cell-scalar float 3\nLOOKUP_TABLE default\n";
+  for(i=0;i<N;i++){
+    content+="0.0 1.0 0.3\n";
+  }
+
+
+
 
   //file.Close();
   //基本はこれだけ。異常に簡単です。
-  let file_name="f"+number+".vtk";
+  let file_name="fe"+number+".vtk";
 
   var blob = new Blob([ content ], { "type" : "text/plain" });
 
