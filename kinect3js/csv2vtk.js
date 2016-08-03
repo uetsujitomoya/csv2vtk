@@ -33,7 +33,7 @@ let number=0;
 
 face.forEach(()=>{
 
-  let filename ="fn";
+  let filename ="fxxx";
   let file_name=filename+number+".vtk";
 
   var content="# vtk DataFile Version 2.0\n";
@@ -59,7 +59,7 @@ face.forEach(()=>{
   */
   content+="\nPOINT_DATA "+M+"\nSCALARS cell-scalar float 3\nLOOKUP_TABLE default";
   for(i=0;i<M;i++){
-    content +="\n"+face[number][i][0]+" "+face[number][i][1]+" "+face[number][i][2];
+    content +="\n"+face[number][i][0]-face[number][0][0]+" "+face[number][i][1]-face[number][0][1]+" "+face[number][i][2]-face[number][0][2];
   }
 
 
