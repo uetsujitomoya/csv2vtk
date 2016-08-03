@@ -46,7 +46,7 @@ face.forEach(()=>{
     content +=face[number][i][0]+" "+face[number][i][1]+" "+face[number][i][2]+"\n";
   }
 
-  content +="LINES "+12+" "+138+"\n";
+  content +="LINES "+12+" "+213+"\n";
   content +="16 130 686 704 964 762 761 814 813 19 191 155 485 264 117 310 99\n";
 
   content +="15 710 723 963 965 812 809 829 22 202 165 270 523 130 311 104\n";
