@@ -33,7 +33,7 @@ let number=0;
 
 face.forEach(()=>{
 
-  let filename ="fxxx";
+  let filename ="fz_truetrue";
   let file_name=filename+number+".vtk";
 
   var content="# vtk DataFile Version 2.0\n";
@@ -54,13 +54,64 @@ face.forEach(()=>{
   /*
   content+="\nCELL_DATA "+N+"\nSCALARS cell-scalar float 3\nLOOKUP_TABLE default";
   for(i=0;i<N;i++){
-    content+="\n0.0 1.0 0.3";
+  content+="\n0.0 1.0 0.3";
   *}
   */
-  content+="\nPOINT_DATA "+M+"\nSCALARS cell-scalar float 3\nLOOKUP_TABLE default";
-  for(i=0;i<M;i++){
-    content +="\n"+face[number][i][0]-face[number][0][0]+" "+face[number][i][1]-face[number][0][1]+" "+face[number][i][2]-face[number][0][2];
-  }
+  content+="\nPOLYGON_DATA "+34+"\nSCALARS cell-scalar float 3\nLOOKUP_TABLE default";
+  //for(i=0;i<M;i++){
+  content +="\n"+face[number][1][2]+face[number][2][2]+face[number][34][2]-face[0][1][2]-face[0][2][2]-face[0][34][2]+" 0 0";
+  content +="\n"+face[number][2][2]+face[number][3][2]+face[number][9][2]-face[0][2][2]-face[0][3][2]-face[0][9][2]+" 0 0";
+  content +="\n"+face[number][2][2]+face[number][3][2]+face[number][21][2]-face[0][2][2]-face[0][3][2]-face[0][21][2]+" 0 0";
+  content +="\n"+face[number][2][2]+face[number][9][2]+face[number][34][2]-face[0][2][2]-face[0][9][2]-face[0][34][2]+" 0 0";
+  content +="\n"+face[number][4][2]+face[number][6][2]+face[number][9][2]-face[0][4][2]-face[0][6][2]-face[0][9][2]+" 0 0";
+  content +="\n"+face[number][4][2]+face[number][6][2]+face[number][21][2]-face[0][4][2]-face[0][6][2]-face[0][21][2]+" 0 0";
+  content +="\n"+face[number][4][2]+face[number][9][2]+face[number][12][2]-face[0][4][2]-face[0][9][2]-face[0][12][2]+" 0 0";
+  content +="\n"+face[number][4][2]+face[number][12][2]+face[number][25][2]-face[0][4][2]-face[0][12][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][4][2]+face[number][21][2]+face[number][25][2]-face[0][4][2]-face[0][21][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][5][2]+face[number][7][2]+face[number][12][2]-face[0][5][2]-face[0][7][2]-face[0][12][2]+" 0 0";
+  content +="\n"+face[number][5][2]+face[number][7][2]+face[number][25][2]-face[0][5][2]-face[0][7][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][5][2]+face[number][12][2]+face[number][25][2]-face[0][5][2]-face[0][12][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][6][2]+face[number][9][2]+face[number][30][2]-face[0][6][2]-face[0][9][2]-face[0][30][2]+" 0 0";
+  content +="\n"+face[number][6][2]+face[number][21][2]+face[number][30][2]-face[0][6][2]-face[0][21][2]-face[0][30][2]+" 0 0";
+  content +="\n"+face[number][7][2]+face[number][11][2]+face[number][12][2]-face[0][7][2]-face[0][11][2]-face[0][12][2]+" 0 0";
+  content +="\n"+face[number][7][2]+face[number][11][2]+face[number][13][2]-face[0][7][2]-face[0][11][2]-face[0][13][2]+" 0 0";
+  content +="\n"+face[number][7][2]+face[number][16][2]+face[number][13][2]-face[0][7][2]-face[0][16][2]-face[0][13][2]+" 0 0";
+  content +="\n"+face[number][7][2]+face[number][16][2]+face[number][26][2]-face[0][7][2]-face[0][16][2]-face[0][26][2]+" 0 0";
+  content +="\n"+face[number][7][2]+face[number][24][2]+face[number][25][2]-face[0][7][2]-face[0][24][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][7][2]+face[number][24][2]+face[number][27][2]-face[0][7][2]-face[0][24][2]-face[0][27][2]+" 0 0";
+  content +="\n"+face[number][7][2]+face[number][26][2]+face[number][27][2]-face[0][7][2]-face[0][26][2]-face[0][27][2]+" 0 0";
+  content +="\n"+face[number][8][2]+face[number][14][2]+face[number][16][2]-face[0][8][2]-face[0][14][2]-face[0][16][2]+" 0 0";
+  content +="\n"+face[number][8][2]+face[number][26][2]+face[number][16][2]-face[0][8][2]-face[0][26][2]-face[0][16][2]+" 0 0";
+  content +="\n"+face[number][8][2]+face[number][26][2]+face[number][28][2]-face[0][8][2]-face[0][26][2]-face[0][28][2]+" 0 0";
+  content +="\n"+face[number][9][2]+face[number][12][2]+face[number][18][2]-face[0][9][2]-face[0][12][2]-face[0][18][2]+" 0 0";
+  content +="\n"+face[number][9][2]+face[number][17][2]+face[number][18][2]-face[0][9][2]-face[0][17][2]-face[0][18][2]+" 0 0";
+  content +="\n"+face[number][9][2]+face[number][17][2]+face[number][34][2]-face[0][9][2]-face[0][17][2]-face[0][34][2]+" 0 0";
+  content +="\n"+face[number][10][2]+face[number][14][2]+face[number][16][2]-face[0][10][2]-face[0][14][2]-face[0][16][2]+" 0 0";
+  content +="\n"+face[number][10][2]+face[number][15][2]+face[number][16][2]-face[0][10][2]-face[0][15][2]-face[0][16][2]+" 0 0";
+  content +="\n"+face[number][10][2]+face[number][15][2]+face[number][19][2]-face[0][10][2]-face[0][15][2]-face[0][19][2]+" 0 0";
+  content +="\n"+face[number][10][2]+face[number][18][2]+face[number][19][2]-face[0][10][2]-face[0][18][2]-face[0][19][2]+" 0 0";
+  content +="\n"+face[number][11][2]+face[number][12][2]+face[number][13][2]-face[0][11][2]-face[0][12][2]-face[0][13][2]+" 0 0";
+  content +="\n"+face[number][12][2]+face[number][13][2]+face[number][32][2]-face[0][12][2]-face[0][13][2]-face[0][32][2]+" 0 0";
+  content +="\n"+face[number][15][2]+face[number][13][2]+face[number][16][2]-face[0][15][2]-face[0][13][2]-face[0][16][2]+" 0 0";
+  content +="\n"+face[number][12][2]+face[number][18][2]+face[number][32][2]-face[0][12][2]-face[0][18][2]-face[0][32][2]+" 0 0";
+  content +="\n"+face[number][19][2]+face[number][18][2]+face[number][32][2]-face[0][19][2]-face[0][18][2]-face[0][32][2]+" 0 0";
+  content +="\n"+face[number][20][2]+face[number][21][2]+face[number][25][2]-face[0][20][2]-face[0][21][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][20][2]+face[number][21][2]+face[number][29][2]-face[0][20][2]-face[0][21][2]-face[0][29][2]+" 0 0";
+  content +="\n"+face[number][20][2]+face[number][23][2]+face[number][33][2]-face[0][20][2]-face[0][23][2]-face[0][33][2]+" 0 0";
+  content +="\n"+face[number][20][2]+face[number][31][2]+face[number][25][2]-face[0][20][2]-face[0][31][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][20][2]+face[number][31][2]+face[number][33][2]-face[0][20][2]-face[0][31][2]-face[0][33][2]+" 0 0";
+  content +="\n"+face[number][22][2]+face[number][23][2]+face[number][26][2]-face[0][22][2]-face[0][23][2]-face[0][26][2]+" 0 0";
+  content +="\n"+face[number][22][2]+face[number][23][2]+face[number][33][2]-face[0][22][2]-face[0][23][2]-face[0][33][2]+" 0 0";
+  content +="\n"+face[number][22][2]+face[number][27][2]+face[number][26][2]-face[0][22][2]-face[0][27][2]-face[0][26][2]+" 0 0";
+  content +="\n"+face[number][23][2]+face[number][28][2]+face[number][26][2]-face[0][23][2]-face[0][28][2]-face[0][26][2]+" 0 0";
+  content +="\n"+face[number][24][2]+face[number][27][2]+face[number][25][2]-face[0][24][2]-face[0][27][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][31][2]+face[number][27][2]+face[number][25][2]-face[0][31][2]-face[0][27][2]-face[0][25][2]+" 0 0";
+  content +="\n"+face[number][1][2]+face[number][2][2]+face[number][35][2]-face[0][1][2]-face[0][2][2]-face[0][35][2]+" 0 0";
+  content +="\n"+face[number][1][2]+face[number][0][2]+face[number][35][2]-face[0][1][2]-face[0][0][2]-face[0][35][2]+" 0 0";
+  content +="\n"+face[number][21][2]+face[number][2][2]+face[number][35][2]-face[0][21][2]-face[0][2][2]-face[0][35][2]+" 0 0";
+  content +="\n"+face[number][21][2]+face[number][29][2]+face[number][35][2]-face[0][21][2]-face[0][29][2]-face[0][35][2]+" 0 0";
+  content +="\n"+face[number][1][2]+face[number][0][2]+face[number][34][2]-face[0][1][2]-face[0][0][2]-face[0][34][2]+" 0 0";
+  //}
 
 
 
