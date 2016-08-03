@@ -33,7 +33,7 @@ let number=0;
 
 face.forEach(()=>{
 
-  let filename ="vb";
+  let filename ="vc";
   let file_name=filename+number+".vtk";
 
   var content="# vtk DataFile Version 4.0\n";
@@ -46,7 +46,7 @@ face.forEach(()=>{
     content +=face[number][i][0]+" "+face[number][i][1]+" "+face[number][i][2]+"\n";
   }
 
-  content +="LINES "+12+" "+213+"\n";
+  content +="LINES "+12+" "+212+"\n";
   content +="16 130 686 704 964 762 761 814 813 19 191 155 485 264 117 310 99\n";
 
   content +="15 710 723 963 965 812 809 829 22 202 165 270 523 130 311 104\n";
@@ -63,7 +63,7 @@ face.forEach(()=>{
 //右目
   content +="15 843 1097 1096 1090 1099 1093 1101 1016 1012 987 749 733 728 777 843\n";
 //輪郭
-  content +="41 245 246 247 250 445 295 29 891 890 889 886 884 879 988 1059 1065 1028 1244 1030 596 595 1031 1043 1036 1038 103 531 529 530 41 48 57 65 129 125 280 478 141 462 335 245\n";
+  content +="40 245 246 247 250 445 295 29 891 890 889 886 884 879 988 1059 1065 1028 1244 1030 596 595 1031 1043 1036 1038 1039 531 529 530 41 48 57 65 129 280 478 141 462 335 245\n";
   //とWriteメソッドを呼び出します。非常に簡単です。開いたファイルは必ず閉じます：
   /*
   content+="\nCELL_DATA "+N+"\nSCALARS cell-scalar float 3\nLOOKUP_TABLE default";
