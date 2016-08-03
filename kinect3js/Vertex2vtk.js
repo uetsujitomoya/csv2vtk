@@ -33,7 +33,7 @@ let number=0;
 
 face.forEach(()=>{
 
-  let filename ="va";
+  let filename ="vb";
   let file_name=filename+number+".vtk";
 
   var content="# vtk DataFile Version 4.0\n";
